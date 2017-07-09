@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Clock</title>
+  <link rel="stylesheet" type="text/css" href="/cgi_htmls/images/main.css" />
+  <script src="/cgi_htmls/inc/priFunctions.js"></script>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <script type="text/javascript">
+    <!--
+    function openWin(vap, mac)
+    {
+      var url = "macacl0_status.cgi?vapidx="+vap+"&mac="+mac;
+      newWin = window.open(url,"macacl_status","width=500,height=200");
+      newWin.focus();
+    }
+    //-->
+  </script>
+  <script type="text/javascript">
+    <!--
+    var tim;
+    function time()
+    {
+      year()
+      month()
+      day()
+      hours()
+      minut()
+    }
+    function year()
+    {
+      var now = new Date();
+      var year = now.getYear();
+      var ty;
+
+      if (year < 10)
+        ty = 2000 + year;
+      else if (year < 138)
+        ty = 1900 + year;
+      else if (year >= 2000)
+        ty = year;
+
+      document.time_set.ac_tiye.value = ty ;
+    }
+    function month()
+    {
+      var now = new Date();
+      var month = now.getMonth() + 1;
+      var tmo;
+
+      tmo = ((month < 10) ? "0" : "") + month;
+      document.time_set.ac_timo.value = tmo;
+    }
+
+    function day()
+    {
+      var now = new Date();
+      var date = now.getDate();
+      var td;
+
+      td = ((date < 10) ? "0" : "") + date;
+      document.time_set.ac_tida.value = td;
+    }
+
+    function hours()
+    {
+      var now = new Date();
+      var hours = now.getHours();
+      var th;
+
+      th = ((hours < 10) ? "0" : "") + hours;
+      document.time_set.ac_tiho.value = th;
+    }
+    function minut()
+    {
+      var now = new Date();
+      var minut = now.getMinutes();
+      var tm;
+
+      tm = ((minut < 10) ? "0" : "") + minut;
+      document.time_set.ac_timi.value = tm;
+    }
+    function resetForm() {
+      document.sntpc.reset();
+      document.time_set.reset();
+      time();
+      return false;
+    }
+    //-->
+  </script>
+<STYLE type="text/css">
+   input,select,textarea{width: 50px;}
+ </STYLE>
+  </head>
+<body onload="resetForm();">
+<div class="content">
+  <div class="header">
+    <h1><span style="color: #6AC65D;"> XYZ.Co <span style=" font-size: 14px;">(CGI Web UI)</span></span></h1>
+  </div>
+  <div class="headerMenu">
+    <div class="headerMenu_right">
+      <div class="headerMenu_right_menu">
+        <a href="?page=lan">Network</a>
+        <a href="javascript:void(0)" id="selectedMenu">System</a>
+        <a href="?page=init">Troubleshooting</a>
+      </div>
+    </div>
+    <div class="headerMenu_left"><center> CGI Web UI </center> </div>
+  </div>
+  <div class="bodyContent">
+    <p class="notice"></p>
+    <form action="?page=date" target="_self" method="POST" name="sntpc">
+    </form>
+    <form action="?page=date" target="_self" method="POST" name="time_set">
+	<input type="hidden" name="page" value="date" />
+      <table>
+        <tr>
+          <td class="sectionHeader">Internal Time</td>
+          <td class="sectionBorder"><hr /></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td class="item">Browser Time</td>
+          <td>Year:&$=toyear&$;</td>
+          <td>Month:&$=tomonth&$;</td>
+          <td>Day:&$=today&$;</td>
+          <td>Hour:&$=tohour&$;</td>
+          <td>Min:&$=tominute&$;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="item">System Time</td>
+          <td>Year:#$=ac_tiye#$;</td>
+          <td>Month:#$=ac_timo#$;</td>
+          <td>Day:#$=ac_tida#$;</td>
+          <td>Hour:#$=ac_tiho#$;</td>
+          <td>Min:#$=ac_timi#$;</td>
+          <td><input type=submit name="set_clk" value="Set"></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <div class="sidebar">
+    <div class="mapBox"><span>System</span></div>
+    <div class="vmContiner">
+      <div class="vmenuBox"><a id="trMnu" title="" onmouseover="menuMouseOver(this,0)" onmouseout="menuMouseOut(this);" href="?page=admin"><span>Password</span></a></div>
+      <div class="vmenuBox"><a id="selectedMenu" title="" onmouseover="menuMouseOver(this,0)" onmouseout="menuMouseOut(this);" href="?page=date"><span>Date Time</span></a></div>
+    </div>
+  </div>
+  <div class="footer">
+  </div>
+</div>
+</body>
+</html>

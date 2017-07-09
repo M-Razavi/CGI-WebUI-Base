@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Administrator</title>
+  <link rel="stylesheet" type="text/css" href="/cgi_htmls/images/main.css" />
+  <script src="/cgi_htmls/inc/priFunctions.js"></script>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <script type="text/javascript">
+	newpasswdinput = document.getElementsByName("newpasswd");
+	newpasswdinput.type="password";
+	confirmpasswdinput = document.getElementsByName("confirmpasswd");
+	confirmpasswdinput.type="password";
+  </script>
+  </head>
+  <body>
+  <div class="content">
+    <div class="header">
+      <h1><span style="color: #6AC65D;"> XYZ.Co <span style=" font-size: 14px;">(CGI Web UI)</span></span></h1>
+    </div>
+    <div class="headerMenu">
+      <div class="headerMenu_right">
+        <div class="headerMenu_right_menu">  
+		<a href="?page=lan">Network</a> 
+		<a href="javascript:void(0)" id="selectedMenu">System</a>
+		<a href="?page=init">Troubleshooting</a>		
+		</div>
+      </div>
+      <div class="headerMenu_left">
+        <center>
+          CGI Web UI
+        </center>
+      </div>
+    </div>
+    <div class="bodyContent">
+      <p class="notice"></p>
+      <form action="?page=admin" target="_self" method="POST" onsubmit="return checkForm(this);" >
+        <input type="hidden" name="page" value="admin" />
+        <table>
+          <tr>
+            <td class="sectionHeader">Change Admin Password</td>
+            <td class="sectionBorder"><hr /></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td class="item">User Name: </td>
+            <td>admin</td>
+          </tr>
+          <tr>
+            <td class="item">New Password:</td>
+            <td> #$=newpasswd#$; </td>
+          </tr>
+          <tr>
+            <td class="item">Convert Password:</td>
+            <td> #$=confirmpasswd#$; </td>
+          </tr>
+          <tr>
+            <td class="item"></td>
+            <td>Password must be at least 6 characters which includes 1 number and 1 lower case and 1 upper case letter..</td>
+          </tr>
+        </table>
+        <table class="maxtable">
+          <tr>
+            <td class="sectionBorder"><hr /></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="right"><input type=submit name="set" value="Save" />
+              <input type=reset value="Cancel" /></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="sidebar">
+      <div class="mapBox"><span>System</span></div>
+      <div class="vmContiner">
+        <div class="vmenuBox"><a id="selectedMenu" title="" onmouseover="menuMouseOver(this,0)" onmouseout="menuMouseOut(this);" href="?page=admin"><span>Password</span></a></div>
+        <div class="vmenuBox"><a id="trMnu" title="" onmouseover="menuMouseOver(this,0)" onmouseout="menuMouseOut(this);" href="?page=date"><span>Date Time</span></a></div>
+      </div>
+    </div>
+    <div class="footer"> </div>
+  </div>
+</body>
+</html>

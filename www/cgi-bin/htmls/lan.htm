@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>LAN IP</title>
+  <link rel="stylesheet" type="text/css" href="/cgi_htmls/images/main.css" />
+  <script src="/cgi_htmls/inc/priFunctions.js"></script>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <script type="text/javascript">
+  
+function checkFormLan(form)
+  {
+	var isValidForm=true;
+	targetInputIp = document.getElementsByName("lanip");
+	targetInputMask = document.getElementsByName("lanmask");
+
+	isValidForm = isValidForm && checkChnIPAddress(targetInputIp[0]);
+	isValidForm = isValidForm && checkChnIPAddress(targetInputMask[0]);			 
+
+	return isValidForm;
+  }
+  
+  </script>
+  </head>
+  <body>
+  <div class="content">
+    <div class="header">
+      <h1><span style="color: #6AC65D;"> XYZ.Co <span style=" font-size: 14px;">(CGI Web UI)</span></span></h1>
+    </div>
+    <div class="headerMenu">
+      <div class="headerMenu_right">
+                <div class="headerMenu_right_menu">  
+				<a href="javascript:void(0)" id="selectedMenu" id="selectedMenu">Network</a> 
+				<a href="?page=admin">System</a>
+				<a href="?page=init">Troubleshooting</a>
+				</div>
+      </div>
+      <div class="headerMenu_left">
+        <center>
+          CGI Web UI
+        </center>
+      </div>
+    </div>
+    <div class="bodyContent">
+      <p class="notice"></p>
+      <form action="?page=lan" method="POST" onsubmit="return checkFormLan(this);">
+        <table>
+          <tr>
+            <td class="sectionHeader">System </td>
+            <td class="sectionBorder"><hr /></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td class="item">System Name:</td>
+            <td> #$=lanhostname#$; </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td class="sectionHeader">Network Address</td>
+            <td class="sectionBorder"><hr /></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td class="item">IP :</td>
+            <td> #$=lanip#$; </td>
+          </tr>
+          <tr>
+            <td class="item">Subnet mask:</td>
+            <td> #$=lanmask#$; </td>
+          </tr>
+          <tr>
+            <td class="item">Default Gateway:</td>
+            <td> #$=langateway#$; </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td class="sectionHeader">MAC Address:</td>
+            <td class="sectionBorder"><hr /></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td class="item">MAC Address:</td>
+            <td>
+            <input style="width:20px;" id="lanMacAddress6" name="lanMacAddress6" value="#$$lanMacAddress6-value$$;" type="text" maxlength="2" disabled="disabled" />
+              :
+              <input style="width:20px;" id="lanMacAddress5" name="lanMacAddress5" value="#$$lanMacAddress5-value$$;" type="text" maxlength="2" disabled="disabled" />
+              :
+              <input style="width:20px;" id="lanMacAddress4" name="lanMacAddress4" value="#$$lanMacAddress4-value$$;" type="text" maxlength="2" disabled="disabled" />
+              :
+              <input style="width:20px;" id="lanMacAddress3" name="lanMacAddress3" value="#$$lanMacAddress3-value$$;" type="text" maxlength="2" disabled="disabled" />
+              :
+              <input style="width:20px;" id="lanMacAddress2" name="lanMacAddress2" value="#$$lanMacAddress2-value$$;" type="text" maxlength="2" disabled="disabled" />
+              :
+              <input style="width:20px;" id="lanMacAddress1" name="lanMacAddress1" value="#$$lanMacAddress1-value$$;" type="text" maxlength="2" disabled="disabled" /></td>
+          </tr>
+        </table>
+        <table class="maxtable">
+          <tr>
+            <td class="sectionBorder"><hr /></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="right"><input type=submit name="set" value="Save">
+              <input type=reset value="Cancel">
+              <input type=submit name="reboot" value="Save and Restart"></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="sidebar">
+      <div class="mapBox"><span>Network</span></div>
+    </div>
+    <div class="footer"> </div>
+  </div>
+</body>
+</html>

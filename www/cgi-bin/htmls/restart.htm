@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Reboot</title>
+  <link rel="stylesheet" type="text/css" href="/cgi_htmls/images/main.css" />
+  <script src="/cgi_htmls/inc/priFunctions.js"></script>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="content">
+  <div class="header">
+     <h1><span style="color: #6AC65D;">XYZ.Co <span style=" font-size: 14px;">(CGI Web UI)</span></span></h1>
+  </div>
+  <div class="headerMenu">
+    <div class="headerMenu_right">
+      <div class="headerMenu_right_menu">
+        <a href="?page=lan">Network</a>
+        <a href="?page=admin">System</a>
+        <a href="javascript:void(0)" id="selectedMenu">Troubleshooting</a>
+      </div>
+    </div>
+    <div class="headerMenu_left"><center> CGI Web UI </center> </div>
+  </div>
+  <div class="bodyContent">
+    <p class="notice"></p>
+    <form action="?page=restart" target="_self" method="POST">
+    <input type="hidden" value="restart" name="page">
+      <table>
+        <tr>
+          <td class="sectionHeader">Restart</td>
+          <td class="sectionBorder"><hr /></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>
+            <label for="rest">
+              <input type=radio name="reboot" value="restart" id="reboot" ~$=reboot,restart~$;>Restart 
+            </label>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+        <td><span style="color:#F00"> Unsaved data maybe loose.</span>
+        </td>
+        <td>
+        </td>
+        </tr>
+      </table>
+      <table class="maxtable">
+        <tr>
+          <td class="sectionBorder"><hr /></td>
+        </tr>
+        <tr>
+          <td class="right">
+            <input type=submit name="set" value="Restart">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <div class="sidebar">
+    <div class="mapBox"><span>Troubleshooting</span></div>
+    <div class="vmContiner">
+      <div class="vmenuBox"><a id="trMnu" title="" onmouseover="menuMouseOver(this,0)" onmouseout="menuMouseOut(this);" href="?page=diagnostics"><span>Diagnostic</span></a></div>
+      <div class="vmenuBox"><a id="trMnu" title="" onmouseover="menuMouseOver(this,0)" onmouseout="menuMouseOut(this);" href="?page=init"><span>Reset Factory</span></a></div>
+      <div class="vmenuBox"><a id="selectedMenu" title="" onmouseover="menuMouseOver(this,0)" onmouseout="menuMouseOut(this);" href="?page=restart"><span>Restart</span></a></div>
+    </div>
+  </div>
+  <div class="footer">
+  </div>
+</div>
+</body>
+</html>
